@@ -2,12 +2,17 @@ import React from 'react'
 import { IoSearchOutline } from "react-icons/io5";
 import { waterPoints } from '../lib/data';
 import WaterPointCard from '../Components/WaterPointCard';
+import WaterMap from '../Components/WaterMap';
+import {motion} from 'motion/react'
 
 export default function Home() {
   return (
     <>
       {/* Hero div */}
-      <div className='min-h-screen w-full bg-gradient-to-r from-[#e7eef7] to-[#d5e5f6] flex flex-col text-center justify-center items-center px-4'>
+      <motion.div className='min-h-screen w-full bg-gradient-to-r from-[#e7eef7] to-[#d5e5f6] flex flex-col text-center justify-center items-center px-4'
+
+      initial={{opacity:0, y: 40}} animate={{opacity:1, y: 0}} transition={{duration: 2, ease: "easeOut"}}
+      >
 
         <h2 className='text-4xl md:text-5xl font-bold mb-4'>
           Find Your Nearest <span className='text-primary'>Water Point</span>
@@ -34,7 +39,7 @@ export default function Home() {
             Search
           </button>
         </div>
-      </div>
+      </motion.div>
 
       {/* Water Points Section */}
       <div className="px-6 py-12 bg-gray-100">
@@ -46,22 +51,48 @@ export default function Home() {
             </p>
           </div>
 
-          <button className="px-4 py-2 border rounded-lg text-sm">
+          <button className="px-4 py-2 border border-gray-300 rounded-lg text-sm">
             Filter
           </button>
         </div>
 
-        <div className="grid grid-cols-3 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <motion.div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+
+        initial={{opacity:0, y: 40}} animate={{opacity:1, y: 0}} transition={{duration: 2, ease: "easeOut"}}
+        >
           {waterPoints.map((point) => (
             <WaterPointCard key={point.id} data={point} />
           ))}
-        </div>
+        </motion.div>
 
         <div className="flex justify-center mt-10">
-          <button className="px-6 py-2 bg-white border rounded-full shadow-sm">
+          <button className="px-6 py-2 bg-white border border-gray-300 rounded-full shadow-sm cursor-pointer">
             Load More Water Points
           </button>
         </div>
+
+        <div className='bg-secondary rounded-lg flex flex-col text-white items-center lg:flex-row gap-6 p-6 mt-8 shadow-xl'>
+
+          <div className="flex-1">
+            <h2 className="text-2xl font-bold mb-2">
+              Prefer a visual overview?
+            </h2>
+
+            <p className="text-white mb-4">
+              Switch to our interactive map view to see all water points,
+              your current location, and real-time navigation directions.
+            </p>
+
+            <button className="bg-white text-secondary px-4 py-2 rounded-4xl cursor-pointer">
+              Open Interactive Map
+            </button>
+          </div>
+
+          <div className="flex-1">
+            <WaterMap />
+          </div>
+        </div>
+
       </div>
     </>
   )
