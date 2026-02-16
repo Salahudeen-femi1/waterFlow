@@ -1,10 +1,12 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { navItmes } from '../lib/navItems'; // Make sure this is spelled correctly
+import { navItmes } from '../lib/navItems';
+import { IoIosNotifications } from "react-icons/io";
+import { FaUser } from "react-icons/fa";
 
 export default function Topnav() {
   return (
-    <nav className="w-full text-white sticky top-0 z-50">
+    <nav className="w-full sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
 
         {/* Logo Section */}
@@ -32,6 +34,12 @@ export default function Topnav() {
             </li>
           ))}
         </ul>
+
+        <div className='flex gap-5'>
+            <span><IoIosNotifications size={20} className='text-primary' /></span>
+            <span><FaUser size={20} className='text-primary' /></span>
+
+        </div>
 
       </div>
     </nav>
