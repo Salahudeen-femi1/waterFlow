@@ -24,7 +24,7 @@ export default function Topnav() {
               <NavLink
                 to={item.path}
                 className={({ isActive }) =>
-                  `text-sm transition-all duration-300 hover:font-semibold ${
+                  `text-sm transition-all duration-300 hover:font-semibold hover:text-primary ${
                     isActive ? ' text-primary font-semibold' : 'text-black'
                   }`
                 }
