@@ -7,3 +7,7 @@ export interface WaterPoint {
   image: string;
   status: WaterStatus;
 }
+
+export interface WaterMapProps {
+  className?: string;
+}

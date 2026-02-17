@@ -43,7 +43,7 @@ export default function WaterPointCard({ data }: Props) {
           <span>{data.location}</span>
         </div>
 
-        <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-xl transition">
+        <button className="w-full hover:bg-primary hover:text-white text-primary bg-[#d5e5f6] py-2 rounded-xl transition">
           Report Issue
         </button>
       </div>

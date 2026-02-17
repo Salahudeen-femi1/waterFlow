@@ -1,5 +1,6 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
+import type { WaterMapProps } from "../lib/types";
 
 // Fix default marker icon issue
 delete (L.Icon.Default.prototype as any)._getIconUrl;
@@ -13,7 +14,7 @@ L.Icon.Default.mergeOptions({
     "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
 });
 
-export default function WaterMap() {
+export default function WaterMap({className}: WaterMapProps) {
   const position: [number, number] = [6.5244, 3.3792]; // Lagos (change to your real coordinates)
 
   return (
@@ -21,7 +22,7 @@ export default function WaterMap() {
       center={position}
       zoom={13}
       scrollWheelZoom={true}
-      className="h-80 w-full rounded-lg"
+      className={` w-full rounded-lg ${className}`}
     >
       <TileLayer
         attribution='&copy; OpenStreetMap contributors'

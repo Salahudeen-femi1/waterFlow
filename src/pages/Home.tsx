@@ -89,7 +89,7 @@ export default function Home() {
           </div>
 
           <div className="flex-1">
-            <WaterMap />
+            <WaterMap className='h-80' />
           </div>
         </div>
 

@@ -21,7 +21,7 @@ export default function MainLayout({ children }: LayoutProp) {
         {children}
       </div>
 
-      <div className="bg-white border border-t-gray-300 flex items-center justify-between h-25 px-6">
+      <div className="bg-white border-t border-gray-300 flex items-center justify-between h-25 px-6">
         <div className="flex items-center gap-2">
           <span className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
             {/* <Image /> */}
