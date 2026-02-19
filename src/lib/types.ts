@@ -6,8 +6,16 @@ export interface WaterPoint {
   location: string;
   image: string;
   status: WaterStatus;
+  
 }
 
 export interface WaterMapProps {
   className?: string;
+  waterPoints: {
+    id: number;
+    name: string;
+    lat: number;
+    lng: number;
+    status: string;
+  }[];
 }

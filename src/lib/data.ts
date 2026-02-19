@@ -33,3 +33,20 @@ export const waterPoints: WaterPoint[] = [
     status: "working",
   },
 ];
+
+export const waterPointsDemo = [
+    {
+      id: 1,
+      name: "Park St Fountain",
+      lat: 6.5244,
+      lng: 3.3792,
+      status: "Working"
+    },
+    {
+      id: 2,
+      name: "Library Pump",
+      lat: 6.5300,
+      lng: 3.3700,
+      status: "Broken"
+    }
+  ];
