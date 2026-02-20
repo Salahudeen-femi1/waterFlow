@@ -12,6 +12,7 @@
   "dependencies": {
     "@tailwindcss/vite": "^4.1.18",
     "leaflet": "^1.9.4",
+    "lucide-react": "^0.575.0",
     "motion": "^12.34.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",

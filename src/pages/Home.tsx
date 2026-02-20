@@ -4,6 +4,7 @@ import { waterPoints } from '../lib/data';
 import WaterPointCard from '../Components/WaterPointCard';
 import WaterMap from '../Components/WaterMap';
 import { motion } from 'motion/react'
+import { MapPin, Activity, MessageSquare, Navigation } from "lucide-react";
 
 export default function Home() {
 
@@ -51,32 +52,65 @@ export default function Home() {
         transition={{ duration: 1 }}
       >
         <h2 className='text-4xl md:text-5xl font-bold mb-4'>
-          Find Your Nearest <span className='text-primary'>Water Point</span>
+          Find Working Water <br /><span className='text-primary'>Point Near you</span>
         </h2>
 
         <p className='text-gray-600 max-w-2xl'>
-          Stay hydrated and informed with real-time status updates and location data.
+          View borehole status, distance, and direction in real time. Join <br /> thousands of citizen improving urban water accessibility
         </p>
 
         {/* SEARCH BAR */}
-        <div className='rounded-lg bg-white flex items-center px-4 h-12 w-full max-w-2xl mt-6 shadow-md shadow-primary/20'>
-          <IoSearchOutline size={20} />
 
-          <input
-            type="text"
-            placeholder='Search demo name (e.g. Central Borehole)'
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className='outline-none w-full ml-2'
-          />
-
-          <button
-            onClick={handleSearch}
-            className='bg-primary text-white rounded-xl px-4 py-1 ml-2'
-          >
-            Search
+        <div className='flex gap-4 mt-6 '>
+          <button className='bg-primary rounded-lg w-60 text-white font-medium'
+            onClick={handleSearch}>
+            View water map
           </button>
+
+
+          <div className='rounded-lg border border-gray-300 flex items-center px-4 h-12 w-full'>
+
+            <IoSearchOutline size={20} />
+
+            <input
+              type="text"
+              placeholder='Search water points...'
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className='outline-none w-full ml-2 font-medium'
+            />
+          </div>
+
         </div>
+          {/* ===== Stats Section ===== */}
+          <section className="w-full mx-auto px-6 py-16">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+
+              <div>
+                <h2 className="text-4xl font-bold text-gray-900">1,240</h2>
+                <p className="text-gray-500 mt-2 tracking-wide uppercase text-sm">
+                  Active Points
+                </p>
+              </div>
+
+              <div>
+                <h2 className="text-4xl font-bold text-gray-900">450K+</h2>
+                <p className="text-gray-500 mt-2 tracking-wide uppercase text-sm">
+                  Gallons Distributed
+                </p>
+              </div>
+
+              <div>
+                <h2 className="text-4xl font-bold text-gray-900">892</h2>
+                <p className="text-gray-500 mt-2 tracking-wide uppercase text-sm">
+                  Reports Resolved
+                </p>
+              </div>
+
+            </div>
+          </section>
+
+
 
         {/* 🔎 SEARCH RESULT DISPLAY */}
         {selectedPoint && (
@@ -99,6 +133,92 @@ export default function Home() {
           </div>
         )}
       </motion.div>
+
+      <div className="bg-gray-50 min-h-screen w-full">
+
+
+
+        {/* ===== Key Features Section ===== */}
+        <section className="bg-white py-20">
+          <div className="max-w-6xl mx-auto px-6 text-center">
+
+            <h2 className="text-3xl font-bold text-gray-900">
+              Our Key Features
+            </h2>
+
+            <p className="text-gray-500 mt-3 max-w-xl mx-auto">
+              Empowering communities with the data they need to ensure
+              consistent access to clean water.
+            </p>
+
+            {/* Feature Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-14">
+
+              {/* Card 1 */}
+              <div className="bg-gray-50 rounded-2xl p-8 shadow-sm hover:shadow-md transition">
+                <div className="bg-blue-100 w-14 h-14 flex items-center justify-center rounded-xl mx-auto">
+                  <Activity className="text-blue-600" size={24} />
+                </div>
+
+                <h3 className="text-xl font-semibold mt-6">
+                  Real-time Status
+                </h3>
+
+                <p className="text-gray-500 mt-3 text-sm leading-relaxed">
+                  Check if a pump is operational before you leave home
+                  with live updates from community reports.
+                </p>
+
+                <p className="text-green-600 font-medium mt-4 text-sm">
+                  ● 98% Accuracy Rate
+                </p>
+              </div>
+
+              {/* Card 2 */}
+              <div className="bg-gray-50 rounded-2xl p-8 shadow-sm hover:shadow-md transition">
+                <div className="bg-blue-100 w-14 h-14 flex items-center justify-center rounded-xl mx-auto">
+                  <MessageSquare className="text-blue-600" size={24} />
+                </div>
+
+                <h3 className="text-xl font-semibold mt-6">
+                  Community Reporting
+                </h3>
+
+                <p className="text-gray-500 mt-3 text-sm leading-relaxed">
+                  Help your neighbors by reporting leaks, maintenance
+                  needs, or successful repairs instantly.
+                </p>
+
+                <p className="text-blue-600 font-medium mt-4 text-sm">
+                  Join 5K+ Contributors
+                </p>
+              </div>
+
+              {/* Card 3 */}
+              <div className="bg-gray-50 rounded-2xl p-8 shadow-sm hover:shadow-md transition">
+                <div className="bg-blue-100 w-14 h-14 flex items-center justify-center rounded-xl mx-auto">
+                  <Navigation className="text-blue-600" size={24} />
+                </div>
+
+                <h3 className="text-xl font-semibold mt-6">
+                  Easy Navigation
+                </h3>
+
+                <p className="text-gray-500 mt-3 text-sm leading-relaxed">
+                  Integrated maps with turn-by-turn directions to the
+                  nearest functional water source.
+                </p>
+
+                <p className="text-orange-500 font-medium mt-4 text-sm">
+                  Estimated Time Included
+                </p>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+      </div>
 
       {/* WATER POINT LIST */}
       <div className="px-6 py-12 bg-gray-100">
